@@ -1,35 +1,30 @@
 nextflow.enable.dsl=2
 
 process generateRandom {
-    output:
-    val(randomNumber) into random_number
 
     script:
     """
-    echo \$(( ( RANDOM % 10 )  + 1 ))
+    sleep 5
+    echo generateRandom
     """
 }
 
 process squareNumber {
-    input:
-    val(randomNumber) from random_number
-
-    output:
-    val(squaredNumber) into final_result
+  
 
     script:
     """
-    echo \$(( ${randomNumber} * ${randomNumber} ))
+    sleep 5  
+    echo squareNumber
     """
 }
 
 process printResult {
-    input:
-    val(squaredNumber) from final_result
-
+  
     script:
     """
-    echo "The squared number is ${squaredNumber}"
+    sleep 5
+    echo "printResult"
     """
 }
 
